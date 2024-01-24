@@ -4,6 +4,7 @@ import 'package:xtudify2/GetStart.dart';
 import 'package:xtudify2/firebase_options.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 );
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'xtudify',
       theme: ThemeData(
         
         scaffoldBackgroundColor: Color(0xff030303),
