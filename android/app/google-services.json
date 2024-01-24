@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "362444584710",
+    "project_id": "xtudify-app",
+    "storage_bucket": "xtudify-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362444584710:android:642e74ac5d8037f0b7d087",
+        "android_client_info": {
+          "package_name": "com.example.xtudify2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbK5nihoG6OR1PydHHNHaIF6HIrtNbyoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
