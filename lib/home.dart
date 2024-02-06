@@ -2,6 +2,7 @@ import 'package:auth/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:xtudify2/module.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -151,69 +152,84 @@ class _HomePageState extends State<HomePage> {
                         children: snapshot.data!.docs.map((document) {
                           return Padding(
                             padding: const EdgeInsets.only(top: 15),
-                            child: Container(
-                              width: double.infinity,
-                              height: 87,
-                              decoration: ShapeDecoration(
-                                shape: RoundedRectangleBorder(
-                                  side:
-                                      BorderSide(width: 2, color: Colors.white),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              padding: EdgeInsets.all(8.0),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 15),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          document['name'],
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                        SizedBox(height: 7),
-                                        Text(
-                                          document['module'],
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
+                            child: GestureDetector(
+                              onTap: () {
+                                //navigate  to module page using meterail page route
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ModulePage(
+                                      docid: document.id,
                                     ),
-                                    //delete button
-                                    GestureDetector(
-                                      onTap: () {
-                                        //delete document
-                                        FirebaseFirestore.instance
-                                            .collection(email)
-                                            .doc(document.id)
-                                            .delete();
-                                      },
-                                      child: Container(
-                                        width: 30,
-                                        height: 30,
-                                        decoration: ShapeDecoration(
-                                          shape: RoundedRectangleBorder(
-                                            side: BorderSide(
-                                                width: 2, color: Colors.white),
-                                            borderRadius:
-                                                BorderRadius.circular(10),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 87,
+                                decoration: ShapeDecoration(
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                        width: 2, color: Colors.white),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                padding: EdgeInsets.all(8.0),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 15),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            document['name'],
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                           ),
-                                        ),
-                                        child: const Icon(
-                                          Icons.delete,
-                                          color: Colors.white,
+                                          SizedBox(height: 7),
+                                          Text(
+                                            document['module'],
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                        ],
+                                      ),
+                                      //delete button
+                                      GestureDetector(
+                                        onTap: () {
+                                          //delete document
+                                          FirebaseFirestore.instance
+                                              .collection(email)
+                                              .doc(document.id)
+                                              .delete();
+                                        },
+                                        child: Container(
+                                          width: 30,
+                                          height: 30,
+                                          decoration: ShapeDecoration(
+                                            shape: RoundedRectangleBorder(
+                                              side: BorderSide(
+                                                  width: 2,
+                                                  color: Colors.white),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                          ),
+                                          child: const Icon(
+                                            Icons.delete,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
