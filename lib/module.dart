@@ -75,6 +75,40 @@ class _ModulePageState extends State<ModulePage> {
                                 'name': nameController.text,
                                 'topic': '0',
                               });
+                              //display 'module' value from collection email and doc with id widget.docid
+                              FirebaseFirestore.instance
+                                  .collection(email)
+                                  .doc(widget.docid)
+                                  .get()
+                                  .then((DocumentSnapshot documentSnapshot) {
+                                if (documentSnapshot.exists) {
+                                  print(
+                                      'Document data: ${documentSnapshot.data()}');
+                                  // Get the current module value as a string
+                                  Map<String, dynamic>? data = documentSnapshot
+                                      .data() as Map<String, dynamic>?;
+
+                                  String moduleValue = data?['module'];
+
+                                  // Convert the string to an integer and increment it
+                                  int incrementedValue =
+                                      int.parse(moduleValue) + 1;
+                                  // Convert the incremented integer back to a string
+                                  String updatedModuleValue =
+                                      incrementedValue.toString();
+                                  // Update the document with the incremented module value
+                                  FirebaseFirestore.instance
+                                      .collection(email)
+                                      .doc(widget.docid)
+                                      .update({
+                                    'module': updatedModuleValue.toString(),
+                                  });
+                                } else {
+                                  print(
+                                      'Document does not exist on the database');
+                                }
+                              });
+
                               nameController.clear();
                               Navigator.pop(context);
                               //clear text field
