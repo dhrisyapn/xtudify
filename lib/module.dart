@@ -175,7 +175,8 @@ class _ModulePageState extends State<ModulePage> {
               return Column(
                 children: snapshot.data!.docs.map((document) {
                   return Padding(
-                    padding: const EdgeInsets.only(top: 15),
+                    padding:
+                        const EdgeInsets.only(top: 30, left: 30, right: 30),
                     child: GestureDetector(
                       onTap: () {
                         //navigate  to module page using meterail page route
