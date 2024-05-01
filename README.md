@@ -1,16 +1,24 @@
-# xtudify2
+# XTUDiFY
 
-A new Flutter project.
+Xtudify empowers students to conquer their studies with a focus on organization and efficiency.  This user-friendly application allows students to create a structured learning plan by adding and organizing subjects, modules, and even individual topics within each subject.  As students master each topic, they can mark it complete, providing a visual record of progress and keeping them motivated throughout their academic journey. Xtudify goes beyond simple to-do lists, fostering a structured approach to studying that ensures students cover everything from broad subjects to the most intricate details.
 
-## Getting Started
+![](UI/3.jpg)
+![](UI/1.jpg)
+![](UI/4.jpg)
+![](UI/2.jpg)
 
-This project is a starting point for a Flutter application.
+## Installation
 
-A few resources to get you started if this is your first Flutter project:
+1. Clone the repository: `git clone https://github.com/dhrisyapn/xtudify.git`
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. Open the project in your preferred development environment (e.g., Android Studio, Visual Studio Code).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. Build and run the app on your preferred device or emulator.
+
+## Contributing
+
+Contributions are welcome! If you find any issues or want to add new features to the app, feel free to submit a pull request. Please make sure to follow the project's code style and guidelines.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE.md).
